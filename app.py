@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,redirect
 import pytube
 
 app = Flask(__name__)
@@ -16,8 +16,8 @@ def index():
 @app.route("/download")
 def download():
 	# Run download.py file
-	down();
-	return "Done"
+	down()
+	return redirect("/")
 
 if __name__ == "__main__":
 	app.run(debug=True)
