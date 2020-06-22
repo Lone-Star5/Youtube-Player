@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from flask import Flask,render_template,redirect
 import pytube
+=======
+from flask import Flask
+from flask import render_template, redirect, request, session,url_for,Response
+>>>>>>> 6b359dac4da4673bcb4312c268d0f685bb6a8fb1
 
 app = Flask(__name__)
 
