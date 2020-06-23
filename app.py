@@ -9,13 +9,14 @@ app = Flask(__name__)
 @app.route("/", methods=['POST','GET'])
 def index():
 	if request.method == 'POST':
-		return 'Displaying'
+		link= request.form['content']
+		return link
 	else:
 		return render_template("index.html")
 
 @app.route("/download",methods=['POST','GET'])
 def download():
-	if request.method=='POST':
+	if request.method == 'POST':
 		stream.download("../Downloads")
 	return redirect("/")
 
