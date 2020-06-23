@@ -7,5 +7,12 @@
 
 {% block body %}
 
+<form action="/" method="POST">
+  <input type="text" name="content" id="content">
+  <input type="submit" value="Play">
+</form>
+<form action="/download" method="POST">
+  <input type="submit" value="Download">
+</form>
 
 {% endblock %}
