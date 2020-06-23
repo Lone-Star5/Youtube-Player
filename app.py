@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
 	if request.method == 'POST':
 		link= request.form['content']
-		return link
+		
 	else:
 		return render_template("index.html")
 
