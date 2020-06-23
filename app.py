@@ -1,24 +1,22 @@
 
 from flask import Flask
-from flask import render_template, redirect, request, session,url_for,Response
-import pytube
+from flask import render_template, redirect, request, session,url_for,Response,request
+
+from download import stream
 
 app = Flask(__name__)
 
-def down():
-	link = "https://www.youtube.com/watch?v=mpjREfvZiDs"
-	yt = pytube.YouTube(link)
-	stream = yt.streams.first()
-	stream.download("../Downloads")
-
-@app.route("/")
+@app.route("/", methods=['POST','GET'])
 def index():
-	return render_template("index.html")
+	if request.method == 'POST':
+		return 'Displaying'
+	else:
+		return render_template("index.html")
 
-@app.route("/download")
+@app.route("/download",methods=['POST','GET'])
 def download():
-	# Run download.py file
-	down()
+	if request.method=='POST':
+		stream.download("../Downloads")
 	return redirect("/")
 
 if __name__ == "__main__":
