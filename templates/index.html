@@ -7,10 +7,12 @@
 
 {% block body %}
 <div class = "container">
-	<h1 class = "heading">
-		Enter the link below
+	<!-- <img src="https://cdn.dribbble.com/users/1696785/screenshots/3941625/youtube-loading-animation.gif" height="100" width="150" style="opacity: 0.85;"> -->
+	<h1 class = "heading"><br><br><mark>
+	Enter the link below</mark>
 	</h1>
 	<div class = "form-group">
+		<br>
 		<form action="/" method="POST" autocomplete="off">
 			<input class = 'form-control' type="text" name="content" id="content">
 		  <input class = "play" type="submit" value="Play">
@@ -21,7 +23,7 @@
 		</form>
 	</div>
 	<div class = "video-container">
-		<iframe class = "video-player" src="https://www.youtube.com/embed/{{video}}" allowfullscreen="" frameborder="0"></iframe>
+		<iframe class = "video-player" src="https://www.youtube.com/embed/{{video}}" allowfullscreen="" frameborder="0" width="200" height="200"></iframe>
 	</div>
 </div>
 {% endblock %}
