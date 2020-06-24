@@ -1,31 +1,32 @@
   .heading{
   	text-align: center;
   }
-  .form-control{
-  	width:60%;
-  	margin-left: 20%;
-  	margin-bottom: 10px;
-  }
   .container{
   	box-shadow: 5px 10px 8px #888888;
   	padding: 20px 20px 20px 20px;
   }
-
+  .form-control{
+  	width: 60%;
+  	margin-left: 20%;
+  	margin-bottom: 20px;
+  }
   .video-container{
   	height : 500px;
   	width : 90%;
-  	margin: 20px 50px 20px 50px;
+  	margin: 70px 50px 50px 50px;
   }
   .form-group{
-  	display:inline;
+  	margin-bottom: 50px;
   }
   .video-player{
   	height:100%;
   	width: 100%;
   }
   .play{
-  	margin-left : 65%;
+  	float:right;
+  	margin-right:20%;
   }
   .download{
-  	display: inline-flex;
+  	float: right;
+  	margin-right:2%;
   }
