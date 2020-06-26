@@ -27,20 +27,10 @@ def index():
 def download():
 	if request.method == 'POST':
 		url= request.form.get("content", True)
-		link = url
-		yt = pytube.YouTube(link)
-		stream = yt.streams.first()	
-		return send_file(stream.download(),as_attachment=True)
+		print (url)
 	return redirect("/")
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
 
-
-
-
-
-	# https://www.youtube.com/watch?v=Z1RJmh_OqeA
-
-
-	# <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1RJmh_OqeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
