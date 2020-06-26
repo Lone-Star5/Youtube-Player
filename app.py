@@ -9,6 +9,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 app = Flask(__name__)
 
+playlist = False
+
 @app.route("/", methods=['POST','GET'])
 def index():
 	if request.method == 'POST':
@@ -19,9 +21,9 @@ def index():
 			url_data=urlparse.urlparse(url)
 			query = urlparse.parse_qs(url_data.query)
 			video = query["v"][0]
-			return render_template('index.html',video=video)
+			return render_template('index.html',video=video,playlist = playlist)
 	else:
-		return render_template("index.html")
+		return render_template("index.html",playlist=playlist)
 
 @app.route("/download",methods=['POST','GET'])
 def download():
@@ -31,6 +33,11 @@ def download():
 		yt = pytube.YouTube(link)
 		stream = yt.streams.first()	
 		return send_file(stream.download(),as_attachment=True)
+	return redirect("/")
+
+@app.route("/playlist", methods = ['GET'])
+def list():
+	playlist = True;
 	return redirect("/")
 
 if __name__ == "__main__":

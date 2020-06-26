@@ -1,9 +1,9 @@
-body {
-  background-image: url('https://chrisaam.files.wordpress.com/2015/03/wallpaper-2846361.jpg');
-  font-family: Arial, Helvetica, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;  
-}
+  body {
+    background-image: url('https://chrisaam.files.wordpress.com/2015/03/wallpaper-2846361.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;  
+  }
 
   .heading{
     text-align: center;
@@ -50,4 +50,6 @@ body {
     background-size: cover;
     background-color: brown;
     margin-right:2%; 
+    font-size: inherit;
+    line-height: inherit;
   }
