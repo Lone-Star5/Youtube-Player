@@ -53,3 +53,7 @@
     font-size: inherit;
     line-height: inherit;
   }
+
+  p{
+    color: white;
+  }

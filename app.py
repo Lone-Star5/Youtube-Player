@@ -37,7 +37,8 @@ def download():
 
 @app.route("/playlist", methods = ['GET'])
 def list():
-	playlist = True;
+	global playlist
+	playlist = True
 	return redirect("/")
 
 if __name__ == "__main__":
