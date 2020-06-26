@@ -24,14 +24,14 @@
 		<a href = "/playlist"> <button class = "playlist"> Create Playlist</button></a>
 	</div>
 	{% if playlist %}
-	<div>
+	<div class = "playlist">
 		<form action="/" method="POST" autocomplete="off">
-			<input type="text" name="content" id="content">
+			<input type="text" class = "playlist" name="content" id="content">
 		  <input type="submit" value="Play">
 		</form>
 	</div>
 	<div>
-		<a href = "/playlist/close"> <button > Close Playlist</button></a>
+		<a href = "/playlist/close"> <button id = "close-playlist"class = "playlist"> Close Playlist</button></a>
 	</div>
 	{% endif %}
 	<div class = "video-container">

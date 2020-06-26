@@ -45,7 +45,7 @@
     background-color: brown;
   	margin-right:2%;
   }
-  .playlist{
+  button.playlist{
     float: right;
     background-size: cover;
     background-color: brown;
@@ -53,7 +53,15 @@
     font-size: inherit;
     line-height: inherit;
   }
-
-  p{
-    color: white;
+  #close-playlist{
+    margin-right:20%;
+    margin-bottom: 50px;
+  }
+  div.playlist{
+    margin-top: 10%;
+    margin-bottom: 50px;
+  }
+  input[type="text"].playlist{
+    margin-left: 10%;
+    width:40%;
   }
