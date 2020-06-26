@@ -29,11 +29,9 @@ def index():
 def download():
 	if request.method == 'POST':
 		url= request.form.get("content", True)
-		print (url)
+		return url
 	return redirect("/")
 
-<<<<<<< HEAD
-=======
 @app.route("/playlist", methods = ['GET'])
 def createlist():
 	global playlist
@@ -45,7 +43,6 @@ def closelist():
 	global playlist
 	playlist = False
 	return redirect("/")	
->>>>>>> upstream/master
 
 if __name__ == "__main__":
 	app.run(debug=True)
