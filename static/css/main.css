@@ -1,9 +1,9 @@
-body {
-  background-image: url('https://chrisaam.files.wordpress.com/2015/03/wallpaper-2846361.jpg');
-  font-family: Arial, Helvetica, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;  
-}
+  body {
+    background-image: url('https://chrisaam.files.wordpress.com/2015/03/wallpaper-2846361.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;  
+  }
 
   .heading{
     text-align: center;
@@ -44,4 +44,24 @@ body {
     background-size: cover;
     background-color: brown;
   	margin-right:2%;
+  }
+  button.playlist{
+    float: right;
+    background-size: cover;
+    background-color: brown;
+    margin-right:2%; 
+    font-size: inherit;
+    line-height: inherit;
+  }
+  #close-playlist{
+    margin-right:20%;
+    margin-bottom: 50px;
+  }
+  div.playlist{
+    margin-top: 10%;
+    margin-bottom: 50px;
+  }
+  input[type="text"].playlist{
+    margin-left: 10%;
+    width:40%;
   }
