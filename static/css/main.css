@@ -45,3 +45,9 @@ body {
     background-color: brown;
   	margin-right:2%;
   }
+  .playlist{
+    float: right;
+    background-size: cover;
+    background-color: brown;
+    margin-right:2%; 
+  }
