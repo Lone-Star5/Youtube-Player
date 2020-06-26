@@ -36,10 +36,16 @@ def download():
 	return redirect("/")
 
 @app.route("/playlist", methods = ['GET'])
-def list():
+def createlist():
 	global playlist
 	playlist = True
 	return redirect("/")
+
+@app.route("/playlist/close", methods = ['GET'])
+def closelist():
+	global playlist
+	playlist = False
+	return redirect("/")	
 
 if __name__ == "__main__":
 	app.run(debug=True)
