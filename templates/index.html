@@ -21,7 +21,19 @@
 		<form action="/download" method="POST" autocomplete="off">
 		  <input class = "download" type="submit" value="Download">
 		</form>
+		<a href = "/playlist"> <button class = "playlist"> Create Playlist</button></a>
 	</div>
+	{% if playlist %}
+	<div class = "playlist">
+		<form action="/" method="POST" autocomplete="off">
+			<input type="text" class = "playlist" name="content" id="content">
+		  <input type="submit" value="Play">
+		</form>
+	</div>
+	<div>
+		<a href = "/playlist/close"> <button id = "close-playlist"class = "playlist"> Close Playlist</button></a>
+	</div>
+	{% endif %}
 	<div class = "video-container">
 		<iframe class = "video-player" src="https://www.youtube.com/embed/{{video}}" allowfullscreen="" frameborder="0" width="200" height="200"></iframe>
 	</div>
