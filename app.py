@@ -10,6 +10,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 app = Flask(__name__)
 
 playlist = False
+links = []
 
 @app.route("/", methods=['POST','GET'])
 def index():
@@ -21,9 +22,20 @@ def index():
 			url_data=urlparse.urlparse(url)
 			query = urlparse.parse_qs(url_data.query)
 			video = query["v"][0]
-			return render_template('index.html',video=video,playlist = playlist)
+			return render_template('index.html',video=video,playlist = playlist, links = links)
 	else:
-		return render_template("index.html",playlist=playlist)
+		return render_template("index.html",playlist=playlist, links = links)
+
+@app.route("/new", methods = ['POST'])
+def create():
+	if request.method == 'POST':
+		url = request.form['content']
+		if(len(url)==0):
+			return redirect("/")
+		else:
+			global links
+			links.append(url);
+			return redirect("/")
 
 @app.route("/download",methods=['POST','GET'])
 def download():
