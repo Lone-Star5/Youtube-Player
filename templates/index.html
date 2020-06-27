@@ -25,10 +25,16 @@
 	</div>
 	{% if playlist %}
 	<div class = "playlist">
+		<form action = "/new" method = "POST" autocomplete="off">
+			<input type = "text" class = "playlist" name = "content" id = "content">
+			<input type = "submit" value = "Add">
+		</form>
+		{%for link in links %}
 		<form action="/" method="POST" autocomplete="off">
-			<input type="text" class = "playlist" name="content" id="content">
+			<input type="text" class = "playlist" name="content" id="content" value = "{{link}}">
 		  <input type="submit" value="Play">
 		</form>
+		{%endfor%}
 	</div>
 	<div>
 		<a href = "/playlist/close"> <button id = "close-playlist"class = "playlist"> Close Playlist</button></a>
