@@ -27,6 +27,14 @@ def index():
 		if(request.form.get('delete', False)=='Delete'):
 			links.remove(request.form['content'])
 			return render_template('index.html',playlist = playlist, links = links)
+		
+		if(request.form.get('download', False)=='Download'):
+			url= request.form['content']
+			link = url
+			yt = pytube.YouTube(link)
+			stream = yt.streams.first()
+			return send_file(stream.download(),as_attachment=True)
+
 	else:
 		return render_template("index.html",playlist=playlist, links = links)
 
@@ -41,15 +49,12 @@ def create():
 			links.append(url);
 			return redirect("/")
 
-@app.route("/download",methods=['POST','GET'])
-def download():
-	if request.method == 'POST':
-		url= request.form.get("content", True)
-		link = url
-		yt = pytube.YouTube(link)
-		stream = yt.streams.first()	
-		return send_file(stream.download(),as_attachment=True)
-	return redirect("/")
+# @app.route("/download",methods=['POST','GET'])
+# def download():
+# 	if request.method == 'POST':
+# 		url= request.form.get("content", True)
+# 		return url
+# 	return redirect("/")
 
 @app.route("/playlist", methods = ['GET'])
 def createlist():
@@ -66,11 +71,3 @@ def closelist():
 if __name__ == "__main__":
 	app.run(debug=True)
 
-
-
-
-
-	# https://www.youtube.com/watch?v=Z1RJmh_OqeA
-
-
-	# <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1RJmh_OqeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
