@@ -32,7 +32,8 @@
 		{%for link in links %}
 		<form action="/" method="POST" autocomplete="off">
 			<input type="text" class = "playlist" name="content" id="content" value = "{{link}}">
-		  <input type="submit" value="Play">
+		  <input name = "play" type="submit" value="Play">
+		  <input name = "delete" type = "submit" value = "Delete">
 		</form>
 		{%endfor%}
 	</div>
