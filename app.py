@@ -27,6 +27,14 @@ def index():
 		if(request.form.get('delete', False)=='Delete'):
 			links.remove(request.form['content'])
 			return render_template('index.html',playlist = playlist, links = links)
+		
+		if(request.form.get('download', False)=='Download'):
+			url= request.form['content']
+			link = url
+			yt = pytube.YouTube(link)
+			stream = yt.streams.first()
+			return send_file(stream.download(),as_attachment=True)
+
 	else:
 		return render_template("index.html",playlist=playlist, links = links)
 
@@ -41,12 +49,12 @@ def create():
 			links.append(url);
 			return redirect("/")
 
-@app.route("/download",methods=['POST','GET'])
-def download():
-	if request.method == 'POST':
-		url= request.form.get("content", True)
-		return url
-	return redirect("/")
+# @app.route("/download",methods=['POST','GET'])
+# def download():
+# 	if request.method == 'POST':
+# 		url= request.form.get("content", True)
+# 		return url
+# 	return redirect("/")
 
 @app.route("/playlist", methods = ['GET'])
 def createlist():
