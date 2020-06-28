@@ -15,14 +15,18 @@ links = []
 @app.route("/", methods=['POST','GET'])
 def index():
 	if request.method == 'POST':
-		url= request.form['content']
-		if(len(url) == 0 ):
-			return render_template("index.html")
-		else: 
-			url_data=urlparse.urlparse(url)
-			query = urlparse.parse_qs(url_data.query)
-			video = query["v"][0]
-			return render_template('index.html',video=video,playlist = playlist, links = links)
+		if(request.form.get('play',False) == "Play"):
+			url= request.form['content']
+			if(len(url) == 0 ):
+				return render_template("index.html")
+			else: 
+				url_data=urlparse.urlparse(url)
+				query = urlparse.parse_qs(url_data.query)
+				video = query["v"][0]
+				return render_template('index.html',video=video,playlist = playlist, links = links)
+		if(request.form.get('delete', False)=='Delete'):
+			links.remove(request.form['content'])
+			return render_template('index.html',playlist = playlist, links = links)
 	else:
 		return render_template("index.html",playlist=playlist, links = links)
 
